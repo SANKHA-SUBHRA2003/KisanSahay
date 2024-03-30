@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../images/main-bg.jpg");
+    color: #fff;
+    overflow-y: scroll; /* Make the page scrollable */
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: fixed; /* Fix navbar at the top */
+    top: 0;
+    left: 0; /* Align navbar to the left */
+    width: 100%; /* Ensure navbar spans full width */
+    z-index: 100;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px; /* Add padding-top to accommodate the fixed navbar */
+    padding-right: 20px; /* Add padding to create a boundary for the weather app */
+    padding-left: 20px; /* Adjusted left padding */
+}
+
+.intro {
+    padding: 20px 0;
+    z-index: 1; /* Ensure content appears above other elements */
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+.track-crops, .watering-status {
+    flex: 0.5; /* Equal width for both sections */
+}
+
+.crop-list {
+    padding-left: 20px;
+}
+
+.watering-content {
+    padding-right: 50px; /* Adjusted right padding */
+}
+
+.weather-app {
+    position: absolute;
+    top: 80px; /* Adjusted top position to be below navbar */
+    right: 20px; /* Position weather app to the right */
+    z-index: 2; /* Ensure weather app appears above other elements */
+}
+
+.Card {
+    padding: 20px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.error {
+    display: none;
+    color: red;
+}
+
+.weather {
+    display: none;
+}

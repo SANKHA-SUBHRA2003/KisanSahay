@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Kisan</title>
+<link rel="stylesheet" href="./css/styles.css">
+  <style>
+    /* Basic styling for the navigation bar */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      /* Center-align the navigation bar */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    /* Style for sections */
+    section {
+      padding: 50px;
+      margin: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Big text style */
+    h1 {
+      font-size: 36px;
+      color: #3498db;
+      /* Updated color for section headings */
+    }
+
+    /* Subtext style */
+    .subtext {
+      font-size: 18px;
+      font-style: italic;
+      color: #777;
+    }
+
+    .video-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding-top: 56.25%;
+      /* Aspect ratio 16:9 */
+      margin-bottom: 20px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Navigation buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #555;
+    }
+
+    /* Center the footer */
+    footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    /* Add this CSS for card styling */
+    .card {
+      background-color: #f0f0f0;
+      /* Updated background color for cards */
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex: 0 0 calc(33.33% - 20px);
+      /* Three cards per row */
+      max-width: calc(33.33% - 20px);
+    }
+
+    /* Media query for mobile devices */
+    @media screen and (max-width: 768px) {
+      .card {
+        flex: 0 0 calc(100% - 20px);
+        /* Full width on mobile */
+        max-width: calc(100% - 20px);
+      }
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: calc(33.33% - 20px);
+      /* Adjust width as needed */
+      margin: 10px;
+      /* Adjust margin as needed */
+      background-color: #f2f2f2;
+      /* Adjust background color */
+      padding: 20px;
+      /* Adjust padding as needed */
+      border-radius: 5px;
+      /* Add border radius for rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add box shadow for depth */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="tab-header">
+    <a class="tab-title" href="index.html">Home</a>
+    <a class="tab-title" href="expensehtml.html">Expense Tracking</a>
+    <a class="tab-title">Communities</a>
+    <a class="tab-title" href="news.html">News</a>
+    <a class="tab-title" href="wi.html">Weather</a>
+</nav>
+  <h1 style="text-align: center; margin-top: 20px">NEWS</h1>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#agriculture">Agriculture</a>
+    <a href="#government-schemes">Government Schemes</a>
+  </nav>
+
+  <!-- Agriculture Section -->
+  <section id="agriculture">
+    <div style="text-align: center">
+      <h1>Agriculture Updates</h1>
+      <div class="video-container">
+        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="previousVideo()">Previous</button>
+        <button onclick="nextVideo()">Next</button>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <h2>Wheat</h2>
+          <p>
+            Wheat is the main cereal crop in India. The total area under the
+            crop is about 29.8 million hectares in the country. The production
+            of wheat in the country has increased significantly from 75.81
+            million MT in 2006-07 to an all time record high of 94.88 million MT
+            in 2011-12. The productivity of wheat which was 2602 kg/hectare in
+            2004-05 has increased to 3140 kg/hectare in 2011-12. The major
+            increase in the productivity of wheat has been observed in the
+            states of Haryana, Punjab and Uttar Pradesh. Higher area coverage is
+            reported from MP in recent years. Indian wheat is largely a
+            soft/medium hard, medium protein, white bread wheat, somewhat
+            similar to U.S. hard white wheat. Wheat grown in central and western
+            India is typically hard, with high protein and high gluten content.
+            India also produces around 1.0-1.2 million tons of durum wheat,
+            mostly in the state of Madhya Pradesh. Most Indian durum is not
+            marketed separately due to segregation problems in the market yards.
+            However, some quantities are purchased by the private trade at a
+            price premium, mainly for processing of higher value/branded
+            products. The production and productivity of Wheat crop were quite
+            low, when India became independent in 1947. The production of Wheat
+            was only 6.46 million tonnes and productivity was merely 663 kg per
+            hectare during 1950-51, which was not sufficient to feed the Indian
+            population. The Country used to import Wheat in large quantities for
+            fulfilling the needs of our people from many countries like USA
+            under PL-480. The reasons of low production and productivity of
+            Wheat at that time was (a) the tall growing plant habit resulting in
+            lodging, when grown under fertile soils, (b) the poor tillering and
+            low sink capacity of the varieties used, (c) higher susceptibility
+            to diseases, (d) the higher sensitivity to thermo & photo
+            variations, etc., resulting in poor adaptability, and (e) longer
+            crop duration resulting in a long exposure of plants to the climatic
+            variations and insect pest / disease attacks. The Government of
+            India appointed a commission in 1961 to assess the feasibility of
+            increasing the crop productivity under prevailing Indian ecological
+            conditions. As result of various steps taken by Govt. of India, the
+            Wheat scenario in our country has completely changed. In the post
+            Independence era, country used to import Wheat for our needs but due
+            to bumper increase in the production and productivity of Wheat in
+            the 'Green Revolution' period in late sixties, our country became
+            self dependent in Wheat production. At present, country is producing
+            much more excess Wheat than the requirement and Godowns are
+            over-flooded with Wheat.
+          </p>
+
+          <h2>Climate requirement</h2>
+          <p>
+            Wheat crop has wide adaptability. It can be grown not only in the
+            tropical and sub-tropical zones, but also in the temperate zone and
+            the cold tracts of the far north ,beyond even the 60 degree north
+            altitude . Wheat can tolerate severe cold and snow and resume growth
+            with the setting in of warm weather in spring .It can be cultivated
+            from sea level to as high as 3300 meters. The best wheat are
+            produced in areas favoured with cool, moist weather during the major
+            portion of the growing period followed by dry, warm weather to
+            enable the grain to ripen properly. The optimum temperature range
+            for ideal germination of wheat seed is 20-25 C though the seeds can
+            germinate in the temperature range 3.5 to 35 c. Rains just after
+            sowing hamper germination and encourage seedling blight. Areas with
+            a warm and damp climate are not suited for wheat growing. During the
+            heading and flowering stages, excessively high or low temperatures
+            and drought are harmful to wheat. Cloudy weather, with high humidity
+            and low temperatures is conducive for rust attack. Wheat plant
+            requires about 14-15 c optimum average temperature at the time of
+            ripening . The temperature conditions at the time of grain filling
+            and development are very crucial for yield. Temperatures above 250c
+            during this period tend to depress grain weight. When temperatures
+            are high, too much energy I lost through the process of
+            transpiration by the plants and the reduced residual energy results
+            in poorer grain formation and lower yields. Wheat is mainly a rabi
+            (winter) season crop in India.
+          </p>
+
+          <h2>Soil</h2>
+          <p>
+            Wheat is grown in a variety of soils of India. Soils with a clay
+            loam or loam texture, good structure and moderate water holding
+            capacity are ideal for wheat cultivation. Care should be taken to
+            avoid very porous and excessively drained oils. Soil should be
+            neutral in its reaction. Heavy soil with good drainage are suitable
+            for wheat cultivation under dry conditions. These soils absorb and
+            retain rain water well. Heavy soils with poor structure and poor
+            drainage are not suitable as wheat is sensitive to water logging.
+            Wheat can be successfully grown on lighter soils provided their
+            water and nutrient holding capacity are improved. Fertilizer
+            management The time and placement of fertilizer is another area
+            where significant progress was made. It was demonstrated that 120 kg
+            nitrogen, 60 kg phosphorus and 30 kg potash per hectare were
+            required for optimum productivity. The N was to be applied in two
+            split doses of 60 kg as basal and the remaining 60 kg at first
+            irrigation and full phosphorus and potash to be applied as basal.
+            Recently, the new wheat varieties have responded up to 180 kg N/ha
+            with optima dose around 150 kg/ha. In the Indo-Gangetic plains,
+            application of zinc @ 25kg/ha in rice-wheat system was found to
+            increase the yield substantially. Recently, the use of sulphur has
+            been found beneficial for enhancing the productivity as well as the
+            grain protein content of wheat. Response to Mn (pockets in the
+            Indo-Gangetic plains) and boron (eastern and far eastern region) has
+            also been realized. Nutrient management With intensive agriculture,
+            deficiency of essential nutrients has also become wide spread. The
+            work conducted under the All India Coordinated Research Project on
+            Micronutrient in Crops and Soils, has shown wide spread deficiency
+            of zinc in soils in India. At the national level, the deficiency
+            level in micro nutrients is Zn: 46 %, B: 17 %, Mo: 12 %, Fe: 11 %
+            and Cu: 5%. The deficiency of sulphur has also been reported across
+            a wide range of soils (38%).The yield response to sulphur has been
+            obtained in more than 40 crops including cereal, millets, oilseeds
+            and pulses etc. To realize the potential yield, strategies may
+            include Site specific nutrient management for targeted yields
+            Integration of crop residues, bio fertilizers etc with inorganic
+            fertilization Tillage techniques like FIRBS for increasing nutrient
+            use efficiencies Remote sensing for efficient Nutrient management
+            Nutrient management, straw quality vis-à-vis human and animal health
+          </p>
+        </div>
+        <div class="card">
+          <h2>Maize</h2>
+          <p>
+            Maize (Zea mays L) is one of the most versatile emerging crops
+            having wider adaptability under varied agro-climatic conditions.
+            Globally, maize is known as queen of cereals because it has the
+            highest genetic yield potential among the cereals. It is cultivated
+            on nearly 150 m ha in about 160 countries having wider diversity of
+            soil, climate, biodiversity and management practices that
+            contributes 36 % (782 m t) in the global grain production. The
+            United States of America (USA) is the largest producer of maize
+            contributes nearly 35 % of the total production in the world and
+            maize is the driver of the US economy. The USA has the highest
+            productivity (> 9.6 t ha-1 ) which is double than the global average
+            (4.92 t ha-1). Whereas, the average productivity in India is 2.43 t
+            ha-1
+          </p>
+          <p>
+            In India, maize is the third most important food crops after rice
+            and wheat. According to advance estimate its production is likely to
+            be 22.23 M Tonnes (2012-13) mainly during Kharif season which covers
+            80% area. Maize in India, contributes nearly 9 % in the national
+            food basket. In addition to staple food for human being and quality
+            feed for animals, maize serves as a basic raw material as an
+            ingredient to thousands of industrial products that includes starch,
+            oil, protein, alcoholic beverages, food sweeteners, pharmaceutical,
+            cosmetic, film, textile, gum, package and paper industries etc.
+          </p>
+          <p>
+            The maize is cultivated throughout the year in all states of the
+            country for various purposes including grain, fodder, green cobs,
+            sweet corn, baby corn, pop corn in peri-urban areas. The predominant
+            maize growing states that contributes more than 80 % of the total
+            maize production are Andhra Pradesh (20.9 %), Karnataka (16.5 %),
+            Rajasthan (9.9 %), Maharashtra (9.1 %), Bihar (8.9 %), Uttar Pradesh
+            (6.1 %), Madhya Pradesh (5.7 %), Himachal Pradesh (4.4 %). Apart
+            from these states maize is also grown in Jammu and Kashmir and
+            North-Eastern states. Hence, the maize has emerged as important crop
+            in the non-traditional regions i.e. peninsular India as the state
+            like Andhra Pradesh which ranks 5th in area (0.79 m ha) has recorded
+            the highest production (4.14 m t) and productivity (5.26 t ha-1 ) in
+            the country although the productivity in some of the districts of
+            Andhra Pradesh is more or equal to the USA.
+          </p>
+          <p>
+            Maize can be grown successfully in variety of soils ranging from
+            loamy sand to clay loam. However, soils with good organic matter
+            content having high water holding capacity with neutral pH are
+            considered good for higher productivity. Being a sensitive crop to
+            moisture stress particularly excess soil moisture and salinity
+            stresses; it is desirable to avoid low lying fields having poor
+            drainage and also the field having higher salinity. Therefore, the
+            fields having provision of proper drainage should be selected for
+            cultivation of maize.
+          </p>
+          <p>
+            All India Coordinated Research Project (AICRP) on maize was launched
+            in 1957 with the objective to develop and disseminate genetically
+            superior cultivars and production/protection technologies. AICRP
+            organizes interdisciplinary, interinstitutional, co-operative and
+            systematic testing of newly developed cultivars of both public and
+            private sectors for different agro-climatic zones of the country.
+            The project resulted in refining efforts in varietal improvement.
+            Since 1961, a total number of 187 cultivars including single cross
+            hybrids, composites and multiple parent crosses have been released
+            nationwide. In India, maize is traditionally grown in monsoon
+            (Kharif) season, which is accompanied by high temperature (35° C)
+            and rainfall. However, with the development of new cultivars and
+            appropriate production technology, winter cultivation of maize has
+            emerged as a viable alternative.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Rice</h2>
+          <p>
+            Oryza Sativa, it is believed, is associated with wet, humid climate,
+            though it is not a tropical plant. It is probably a descendent of
+            wild grass that was most likely cultivated in the foothills of the
+            far Eastern Himalayas. Another school of thought believes that the
+            rice plant may have originated in southern India, then spread to the
+            north of the country and then onwards to China. It then arrived in
+            Korea, the Philippines (about 2000 B. C.) and then Japan and
+            Indonesia (about 1000 B. C.).
+          </p>
+          <p>
+            The journey of rice around the world has been slow, but once it took
+            root it stayed and became a major agriculture and economic product
+            for the people. In the Indian subcontinent more than a quarter of
+            the cultivated land is given to rice (20011-12). It is a very
+            essential part of the daily meal in the southern and eastern parts
+            of India. In the northern and central parts of the subcontinent,
+            where wheat is frequently eaten, rice holds its own and is cooked
+            daily as well as on festivals and special occasions.
+          </p>
+          <h2>History of Rice</h2>
+          <p>
+            in India India is an important centre of rice cultivation. The rice
+            is cultivated on the largest areas in India. Historians believe that
+            while the indica variety of rice was first domesticated in the area
+            covering the foothills of the Eastern Himalayas (i.e. north-eastern
+            India), stretching through Burma, Thailand, Laos, Vietnam and
+            Southern China, the japonica variety was domesticated from wild rice
+            in southern China which was introduced to India. Perennial wild rice
+            still grow in Assam and Nepal. It seems to have appeared around 1400
+            BC in southern India after its domestication in the northern plains.
+            It then spread to all the fertile alluvial plains watered by rivers.
+            Some says that the word rice is derived from the Tamil word arisi.
+          </p>
+          <h2>Climatic Requirements</h2>
+          <p>
+            In India rice is grown under widely varying conditions of altitude
+            and climate. Rice cultivation in India extends from 8 to35ºN
+            latitude and from sea level to as high as 3000 meters. Rice crop
+            needs a hot and humid climate. It is best suited to regions which
+            have high humidity, prolonged sunshine and an assured supply of
+            water. The average temperature required throughout the life period
+            of the crop ranges from 21 to 37º C. Maximum temp which the crop can
+            tolerate 400C to 42 0C.
+          </p>
+          <h2>Nutritional value of Rice</h2>
+          <p>
+            Rice is a nutritional staple food which provides instant energy as
+            its most important component is carbohydrate (starch). On the other
+            hand, rice is poor in nitrogenous substances with average
+            composition of these substances being only 8 per cent and fat
+            content or lipids only negligible, i.e., 1per cent and due to this
+            reason it is considered as a complete food for eating. Rice flour is
+            rich in starch and is used for making various food materials. It is
+            also used in some instances by brewers to make alcoholic malt.
+            Likewise, rice straw mixed with other materials is used to produce
+            porcelain, glass and pottery. Rice is also used in manufacturing of
+            paper pulp and livestock bedding.
+          </p>
+          <p>
+            The variability of composition and characteristics of rice is really
+            broad and depends on variety and environmental conditions under
+            which the crop is grown. In husked rice, protein content ranges in
+            between 7per cent to 12per cent. The use of nitrogen fertilizers
+            increases the percentage content of some amino acids.
+          </p>
+          <h2>Medicinal Value</h2>
+          <p>
+            The immense diversity of rice germplasm is a rich source for many
+            rice based products and is also used for treating many health
+            related maladies such as indigestion, diabetes, arthritis,
+            paralysis, epilepsy and give strength to pregnant and lactating
+            mothers. Ancient Ayurvedic literature testify the medicinal and
+            curative properties of different types of rice grown in India.
+            Medicinal rice varieties like Kanthi Banko (Chhattisgarh), Meher,
+            Saraiphul & Danwar (Orissa), Atikaya & Kari Bhatta (Karnataka), are
+            very common in India. Few varieties cultivated in restricted pockets
+            of Kerala for their medical properties e.g. Chennellu, Kunjinellu,
+            Erumakkari & Karuthachembavu etc.
+          </p>
+          <h2>Crop Production Practices</h2>
+          <p>
+            In India Rice is mainly grown in two types of soils i.e., (i)
+            uplands and (ii) low lands. The method of cultivation of rice in a
+            particular region depends largely on factors such as situation of
+            land, type of soils, irrigation facilities, availability of
+            labourers intensity and distribution of rainfalls. The crop of rice
+            is grown with the following methods Dry or Semi-dry upland
+            cultivation Broadcasting the seed Sowing the seed behind the plough
+            or drilling Wet or lowland cultivation Transplanting in puddled
+            fields. Broadcasting sprouted seeds in puddled fields.
+          </p>
+          <h2>Selection of Seeds</h2>
+          <p>
+            The use of quality seeds in cultivation of rice is an important
+            factor to get better crop yield. Therefore, proper care has to be
+            taken in selecting seeds of the best quality. Much of the success in
+            raising the healthy seedlings depends on the quality of seed. Seeds
+            intended for sowing should satisfy the following requirements The
+            seed should belong to the proper variety, which is proposed to be
+            grown. The seed should be clean and free from obvious mixtures of
+            other seeds. The seed should be mature, well developed and plump in
+            size. The seed should be free from obvious signs of age or bad
+            storage. The seed should have a high germinating capacity. Before
+            sowing the seed should be treated with fungicides which protects the
+            seed against soil-born fungi and also give a boost to the seedlings.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Pulses</h2>
+          <p>
+            Pulses are consumed as Dal, which is a cheap source of plant
+            protein. These are consumed because of body building properties
+            having presence of various amino acids. These also have medicinal
+            properties. By products of pulses like leaves, pod coats and bran
+            are given to animals in the form of dry fodder. Some pulse crops
+            like Gram, Lobia, Urdbean & Moongbean are fed to animals as green
+            fodder. Moong plants are also used as green manure which improve
+            soil health and adds nutrient into the soil.
+          </p>
+          <p>
+            A number of pulse crops are grown in India and world. Among the
+            crops, major ones are Gram, Pigeonpea, Lentil, Fieldpeas etc.
+            According to history, the origin of Gram is in South West Asia –
+            probably Afghanistan and Persia, Pigeonpea in Africa, Lentil in
+            Turkey to South Iran and Fieldpeas in Mediterranean Region of
+            Southern Europe and Western Asia.
+          </p>
+          <h2>Important Major Pulses Growing Zones / States in India</h2>
+          <p>
+            Varietal Development programme of pulses got strengthened in 1967
+            with the initiation of All-India Co-ordinated Research Improvement
+            Programme. Through this programme, the varieties suitable for across
+            the country i.e. agro-climatic zones: Northern Hills Zone – J&K,
+            Himachal Pradesh, North West of Uttar Pradesh; North West Plain Zone
+            – Haryana, Punjab, Rajasthan, Gujarat, western Uttar Pradesh; North
+            East Plain Zone – eastern Uttar Pradesh, Bihar, West Bengal, Assam,
+            Tripura, Mizoram, Northern Odisha; Central Zone – Madhya Pradesh,
+            Maharashtra, Parts of Karnataka, Andhra Pradesh; South Zone – Andhra
+            Pradesh, Tamil Nadu, Kerala, Karnataka and southern Odisha have been
+            developed.
+          </p>
+          <h2>Climatic Requirement</h2>
+          <p>
+            Pulse crops are cultivated in Kharif, Rabi and Zaid seasons of the
+            Agricultural year. Rabi crops require mild cold climate during
+            sowing period, during vegetative to pod development cold climate and
+            during maturity / harvesting warm climate. Similarly, Kharif pulse
+            crops require warm climate throughout their life from sowing to
+            harvesting. Summer pulses are habitants of warm climate. Seed is
+            required to pass many stages to produce seed like germination,
+            seedling, vegetative, flowering, fruit setting, pod development and
+            grain maturity / harvesting.
+          </p>
+          <h2>
+            Area, Production And Yield Of Major Pulse Crops Growing States In
+            India
+          </h2>
+          <p>
+            There was 239 lakh ha area in India at triennium ending 2010-11,
+            which was mainly contributed by Madhya Pradesh, Rajasthan,
+            Maharashtra, Karnataka and Uttar Pradesh. From this area, 158 lakh
+            tonnes production of pulse was received. The major contributors of
+            this production were Madhya Pradesh, Maharashtra, Uttar Pradesh,
+            Rajasthan and Andhra Pradesh. During this period, productivity of
+            pulses was recorded as 661 kg / ha with highest in Punjab (905
+            kg/ha), Haryana (891), Bihar (839), Uttar Pradesh (823) and West
+            Bengal (811).
+          </p>
+        </div>
+        <div class="card">
+          <h2>Jute</h2>
+          <p>
+            Jute is an important natural fibre crop in India next to cotton. In
+            trade and industry, jute and mesta crop together known as raw jute
+            as their uses are almost same. Raw jute plays an important role in
+            the country’s economy. Raw jute was originally considered as a
+            source of raw material for packaging industries only. But it has now
+            emerged as a versatile raw material for diverse applications, such
+            as, textile industries, paper industries, building and automotive
+            industries, use as soil saver, use as decorative and furnishing
+            materials, etc. Raw jute being bio-degradable and annually renewable
+            source, it is considered as an environment-friendly crop and it
+            helps in the maintenance of the environment and ecological balance.
+            Further attraction of Jute lies in its easy availability,
+            inexhaustible quantity at a comparatively cheaper rate. Moreover, it
+            can easily be blended with other natural and manmade fibres.
+          </p>
+
+          <p>
+            Although Jute acreage has stabilized around 8 lakh hectares in the
+            country, jute productivity has more than doubled to 22.12 q/ha in
+            2010-11 since partition of the country from 11 qtl per ha and the
+            total production of raw jute in the country is about 10.58 million
+            bales of 180 kg each. This has happened due to development of short
+            duration high yielding varieties as well as other production
+            technologies by ICAR including fertilizer management, weed
+            management, farm machineries and pest management. CRIJAF (ICAR) has
+            developed around 15 high yielding varieties of jute and allied
+            fibres.
+          </p>
+
+          <p>
+            Production and distribution of certified seed of newly released
+            varieties are the need of the hour for further improvement in
+            productivity. ICAR has taken the initiatives for production of
+            quality seed of newly released varieties of jute in its farms which
+            may increase the yield by at least 20-30%. Five most important
+            issues namely, improvement in productivity, quality improvement,
+            retting of jute, farm machineries and quality seed production are
+            addressed by the ICAR through various on-going projects, which have
+            contributed to the present level of production with adequate support
+            from the Jute Technology Mission and Directorate of Jute Development
+            of the Ministry of Agriculture.
+          </p>
+
+          <p>
+            With its insignificant coverage of total cultivated area, it plays a
+            predominant role in the country’xs economy by generating employment,
+            earning foreign exchange, solving many of the socio-economic
+            problems, etc. In earlier years, Jute was considered as a Golden
+            Fibre but there after it had to pass through different critical
+            situation. The main problem came in the way with the introduction of
+            synthetic fibre by the end of sixties/early seventies. After the
+            development of diversified product of jute fibre and due to growing
+            concern about the environment pollution, the importance of jute has
+            again revived.
+          </p>
+
+          <h2>Important regions/ zones for Jute cultivation in India</h2>
+          <p>
+            Jute cultivation is mainly concentrated in the eastern and north
+            eastern India while that of mesta cultivation is spread almost
+            throughout the country. The crop can be grown in low, medium and
+            high land situation, both moisture stress and water stagnating
+            condition. White Jute can be grown comparatively in low land
+            situation while that of Tossa Jute prefers medium and high land
+            situation. Mesta is grown in almost all over the country. It being a
+            hardy crop and can tolerate moisture stress; its cultivation is
+            spread in different agro-climatic situations unlike jute which is
+            concentrated only in eastern and north eastern States. In a major
+            part of Jute area, particularly in North Bengal, Bihar and
+            North-Eastern States, the soil is acidic in nature. However, the
+            Jute crop is growing in these areas in existing situation adjusting
+            the crop sequence.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Sugarcane</h2>
+
+          <p>
+            Sugarcane (Saccharum officinarum) family Gramineae (Poaceae) is
+            widely grown crop in India. It provides employment to over a million
+            people directly or indirectly besides contributing significantly to
+            the national exchequer. Sugarcane growing countries of the world lay
+            between the latitude 36.7° north and 31.0° south of the equator
+            extending from tropical to subtropical zones. Sugar cane originated
+            in New Guinea where it has been known for thousands of years. Sugar
+            cane plants spread along human migration routes to Asia and the
+            Indian subcontinent. Here it cross-bred with some wild sugar cane
+            relatives to produce the commercial sugar cane we know today.
+          </p>
+
+          <p>
+            Cultivation of sugarcane in India dates back to the Vedic period.
+            The earliest mention of sugarcane cultivation is found in Indian
+            writings of the period 1400 to 1000 B.C. It is now widely accepted
+            that India is the original home of Saccharum species. Saccharum
+            barberi and Polynesian group of island especially New Guinea is the
+            centre of origin of S. officinarum. It belongs to family Gramineae
+            (Poaceae), class monocotyledons and order glumaceae sub family
+            panicoidae, tribe Andripogoneae and sub tribe saccharininea. The
+            cultivated canes belong to two main groups: (a) thin, hardy north
+            Indian types S.barberi and S.Sinense and (b) thick, juicy noble
+            canes Saccharum officinarum. Highly prized cane is S. officinarum.
+          </p>
+
+          <h2>Important regions/ zones for sugarcane cultivation in India</h2>
+
+          <p>
+            Broadly there are two distinct agro-climatic regions of sugarcane
+            cultivation in India, viz., tropical and subtropical. However, five
+            agro-climatic zones have been identified mainly for the purpose of
+            varietal development. They are (i)North Western Zone (ii) North
+            Central Zone (iii) North Eastern Zone (iv) Peninsular Zone (v)
+            Coastal Zone.
+          </p>
+
+          <p>
+            Tropical region Shared about 45% and 55% of the total sugarcane area
+            and production in the country, respectively along with the average
+            productivity of 77 t/ha (2011-12). Sub-tropical region accounted for
+            about 55% and 45% of total area and production of sugarcane with an
+            average productivity about 63 t/ha (2011-12)
+          </p>
+
+          <h2>Tropical Sugarcane region</h2>
+
+          <p>
+            The tropical sugarcane region consists of sugarcane agro climatic
+            zone 4 (peninsular zone) and 5(Coastal zone) which includes the
+            states of Maharashtra, Andhra Pradesh, Tamil Nadu, Karnataka,
+            Gujarat, Madhya Pradesh, Goa, Pondicherry and Kerala.
+          </p>
+
+          <p>
+            Sub-tropical sugarcane region: Around 55 per cent of total cane area
+            in the country is in the sub-tropics. U.P, Bihar, Haryana and Punjab
+            comes under this region. Crop distribution: Sugarcane growing
+            countries of the world are lying between the latitude 36.70 north
+            and 31.00 south of the equator extending from tropical to
+            sub-tropical zones. In India sugarcane is cultivated all over the
+            country from latitude 80 N to 330 N, except cold hilly areas like
+            Kashmir valley, Himachal Pradesh and Arunachal Pradesh.
+          </p>
+
+          <h2>Climatic requirement</h2>
+
+          <p>
+            Temperature for different critical stages of sugarcane: The
+            different critical stages are germination, tillering, early growth,
+            active growth and elongation. Optimum temperature for sprouting
+            (germination) of stem cuttings is 32° to 38°c. It slows down below
+            25°, reaches plateau between 30°-34°. Temperatures above 38° reduce
+            the rate of photosynthesis and increase respiration. For ripening,
+            however, relatively low temperatures in the range of 12° to 14° are
+            desirable.
+          </p>
+
+          <h2>Reduction in yield of sugarcane due to rise in temperature</h2>
+
+          <p>
+            The sugarcane productivity and juice quality are profoundly
+            influenced by weather conditions prevailing during the various
+            crop-growth sub-periods. Sugar recovery is highest when the weather
+            is dry with low humidity; bright sunshine hours, cooler nights with
+            wide diurnal variations and very little rainfall during ripening
+            period. These conditions favour high sugar accumulation. The
+            climatic conditions like very high temperature or very low
+            temperature deteriorate the juice quality and thus affecting the
+            sugar quality. Favourable climate like warm and humid climate favour
+            the insect pests and diseases, which cause much damage to the
+            quality and yield of its juice and finally sucrose contents.
+          </p>
+        </div>
+      </div>
+  </section>
+
+  <!-- Government Schemes Section -->
+  <section id="government-schemes">
+    <div style="text-align: center">
+      <h1>Government Schemes</h1>
+      <div class="video-container">
+        <iframe id="video-frame-news" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="previousVideoNews()">Previous</button>
+        <button onclick="nextVideoNews()">Next</button>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <h2>Farmer Registration and Unified beneficiary InformaTion System FRUITS</h2>
+
+          <h2>About Fruits</h2>
+          <p>
+            Karnataka state implements several schemes for the benefit of farmers. Farmers undertake different
+            agriculture and agriculture related activities like growing Agriculture crops, Horticulture crops,
+            Sericulture, Dairy, Poultry, Fishery etc. Each of this activity requires specialised knowledge and
+            experience. Therefore, the state has established specialised and specific department to assist farmers in
+            carrying out farming activities effectively and efficiently. While establishment of exclusive departments
+            brings focused approach for development of each of these activities, farmers need to approach different
+            departments for availing any type of assistance and benefits. It is common practice that all the departments
+            seek documents from the farmers for providing benefits under any scheme. Farmers end up submitting same set
+            of documents to different departments every year. Sometimes they will be required to submit one set of
+            documents for every scheme in same department.
+            A well organized and scrutinized farmer database will avoid farmers from running pillar to post for availing
+            benefits. Besides it would helps the departments in overcoming the aforesaid issues. DPAR e Governance
+            department in association with NIC has developed a software application called Farmer Registration &Unified
+            Beneficiary Information System – FRUITS.
+          </p>
+          <a href="https://fruits.karnataka.gov.in/#">Fruits Website</a>
+        </div>
+        <div class="card">
+          <h2>NATIONAL LIVESTOCK MISSION - EDEG</h2>
+
+          <p>National Livestock Mission is an initiative of the Ministry of Agriculture and Farmers’ Welfare. The
+            mission, which commenced from 2014-15, has the objective of sustainable development of the livestock sector.
+          </p>
+          <p>
+            NABARD is the subsidy channelising agency for following schemes, under Entrepreneurship
+          </p>
+          <h2>
+            Development & Employment Generation (EDEG) component of National Livestock Mission.
+          </h2>
+
+          <p>
+            Poultry Venture Capital Fund (PVCF)
+            Integrated Development of Small Ruminants and Rabbit (IDSRR)
+            Pig Development (PD)
+            Salvaging of Male Buffalo Calves (SRMBC)
+            Effective Animal Waste Management
+            Construction of Storage Facility for Feed and Fodder
+          </p>
+          <h2>
+            List Of Beneficiaries
+          </h2>
+
+          <p>
+            Farmers, individual entrepreneurs
+            NGOs
+            Companies
+            Cooperatives
+            Groups of organized and unorganized sector which include Self- Help Groups (SHGs) and Joint Liability Groups
+            (JLGs)
+          </p>
+          <h2>
+            Eligible Financial Institutions
+          </h2>
+
+          <p>
+            Commercial Banks
+            Regional Rural Banks
+            State Cooperative Banks
+            State Cooperative Agriculture and Rural Development Banks
+            Other institutions eligible for refinance from NABARD
+          </p>
+
+
+          <a href="https://www.nabard.org/content1.aspx?id=599&catid=23&mid=530">National Livestock Mission</a>
+        </div>
+        <div class="card">
+          <h2>AGRI CLINIC AND AGRIBUSINESS CENTRES SCHEME (ACABC SCHEME)</h2>
+
+          <p>
+            The ACABC scheme is being implemented by Ministry of Agriculture and Farmers’ Welfare, Government of India,
+            with NABARD acting as subsidy channelising agency.
+          </p>
+          <p>
+            The objectives of the scheme are –
+            To supplement efforts of public extension by providing extension and other services to farmers either on
+            payment basis or free of cost as per business model of agri-preneur, local needs and affordability of target
+            group of farmers
+            To support agricultural development
+            To create gainful self-employment opportunities to unemployed agricultural graduates, agricultural diploma
+            holders, intermediate in agriculture and biological science graduates with PG in agri-related courses.
+          </p>
+          <h2>
+            Agri-Clinics
+          </h2>
+
+          <p>
+            Agri-Clinics are envisaged to provide expert advice and services to farmers on various aspects to enhance
+            productivity of crops/animals and increase the incomes of farmers. Agri-Clinics provide support in the
+            following areas:
+            Soil health
+            Cropping practices
+            Plant protection
+            Crop insurance Clinical services for animals, feed and fodder management
+            Post-harvest technology
+            Clinical services for animals, feed and fodder management
+            Prices of various crops in the market, etc.
+          </p>
+          <h2>
+            Agri-Business Centres
+          </h2>
+
+          <p>
+            Agri-Business Centres are commercial units of agri-ventures established by trained agriculture
+            professionals. These ventures may include maintenance and custom hiring of farm equipment, sale of inputs
+            and other services in agriculture and allied areas, including post-harvest management and market linkages
+            for income generation and entrepreneurship development.
+          </p>
+
+          <p>
+            The scheme covers full financial support for training and handholding, provision of loan and credit-linked
+            back-end composite subsidy.
+          </p>
+
+          <h2>
+            List of Beneficiaries
+          </h2>
+
+          <p>
+            Graduates in agriculture and allied subjects from State Agriculture Universities (SAUs)/Central Agricultural
+            Universities/Universities recognised by ICAR/UGC. Degree in Agriculture and allied subjects offered by other
+            agencies are also considered subject to approval of Department of Agriculture & Cooperation, GoI, on
+            recommendation of the State Government
+            Diploma (with at least 50% marks)/Post Graduate Diploma holders in Agriculture and allied subjects from
+            State Agricultural Universities, State Agriculture and Allied Departments and State Department of Technical
+            Education.
+            Diploma in Agriculture and allied subjects offered by other agencies are also considered subject to approval
+            of Department of Agriculture, Cooperation & Farmers’ Welfare, GoI on recommendation of the State Government
+            Biological Science Graduates with Post Graduation in Agriculture & allied subjects
+            Degree courses recognised by UGC having more than 60 percent of the course content in Agriculture and allied
+            subjects
+            Diploma/Post Graduate Diploma courses with more than 60 percent of course content in Agriculture and allied
+            subjects, after B.Sc. with Biological Sciences, from recognised colleges and universities.
+            Agriculture related courses at Intermediate (i.e. plus two) level, with at least 55% marks.
+          </p>
+
+          <a href="https://www.nabard.org/content1.aspx?id=595&catid=23&mid=530">AGRI CLINIC AND AGRIBUSINESS CENTRES
+            SCHEME (ACABC SCHEME)
+
+          </a>
+        </div>
+        <div class="card">
+          <h2>Agricultural Marketing Infrastructure</h2>
+          <h2>Introduction</h2>
+
+          <p>
+            1. To promote creation of Agricultural Marketing Infrastructure including storage infrastructure,
+            Directorate of Marketing and Inspection (DMI) an attached office of DA&FW, Ministry of Agriculture and
+            Farmers Welfare is implementing Agricultural Marketing Infrastructure (AMI) a sub-scheme of the Integrated
+            Scheme for Agricultural marketing (ISAM).
+          </p>
+          <p>
+            2. Major objectives of the scheme includes to promote creation of agricultural marketing infrastructure by
+            providing backend subsidy support to farmers, states, cooperatives and private sector investments and to
+            promote creation of scientific storage capacity in rural areas in order to avoid distress sale and to
+            increase farmers' income.
+          </p>
+          <p>
+            3. AMI is demand driven, credit linked, back ended subsidy scheme wherein subsidy support @ 25% and 33.33%,
+            available to beneficiaries is routed through NABARD, NCDC and DMI/DAC&FW.
+          </p>
+          <p>
+            4. Under AMI scheme, the eligible infrastructure projects includes storage infrastructure projects,
+            Marketing infrastructure projects (other than storage) such as cleaning, grading, sorting, packing etc.,
+            common facilitation centre for FPOs, common facilities/marketing infrastructure in the market yards (APMCs)
+            and other value addition activities including Mini Oil expeller, Mini Dal mill, development / upgradation to
+            Rural Haats/RPMs as Grameen Agricultural Market (GrAMs), infrastructure for direct marketing, stand-alone
+            standardized cold storage units etc.
+          </p>
+          <h2>
+            Eligible Applicants
+          </h2>
+          <p>
+            1. Farmers, Individuals, Group of farmers/growers, Registered FPOS/FPCs, Partnership/Proprietary firms,
+            Companies, Corporations; NGOs, SHGS, Cooperatives, Cooperative Marketing Federations; Autonomous Bodies of
+            the Government, Local Bodies, Panchayats; State agencies including State Government Dept. and autonomous
+            organization / State corporations such as APMCS & SAMBS, SWCs, State Civil Supplies Corporations etc.
+          </p>
+          <h2>
+            Additional Information
+          </h2>
+          <p>
+            1. For Storage infrastructure capacity of 50-5000 MT for all categories of promoters across the country and
+            50-10000 MT for State agencies, in all States / UTs are eligible for claiming subsidy under AMI.
+          </p>
+          <p>
+            2. Promoter's contribution should be minimum 20% to maximum 50% of the project cost.
+          </p>
+          <p>
+            3. Storage infrastructure projects to be built under the sub scheme should be constructed based on
+            structurally sound engineering design and should also be functionally suitable for storage of agricultural
+            produce.
+          </p>
+          <p>
+            4. The detailed Operational Guideline is available at <a
+              href="https://dmi.gov.in/Schemeamigs.aspx">https://dmi.gov.in/Schemeamigs.aspx</a>
+          </p>
+
+
+          <a href="https://www.jansamarth.in/agricultural-loan-agricultural-marketing-infrastructure-scheme">Agricultural
+            Marketing Infrastructure (AMI)</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <p>Copyright ⓒ 2023 Byte Brigadiers</p>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript code for controlling the YouTube videos
+    const videoIds = [
+      "YpA2t689H7E",
+      "9_Q4RBTd3ws",
+      "_NDu8NHVUyk",
+      "CAQKxhQEDds",
+      "yMRpjSC2Cd8",
+    ];
+    let currentVideoIndex = 0;
+
+    function loadVideo() {
+      const iframe = document.getElementById("video-frame");
+      iframe.src = `https://www.youtube.com/embed/${videoIds[currentVideoIndex]}`;
+    }
+
+    function nextVideo() {
+      currentVideoIndex = (currentVideoIndex + 1) % videoIds.length;
+      loadVideo();
+    }
+
+    function previousVideo() {
+      currentVideoIndex =
+        (currentVideoIndex - 1 + videoIds.length) % videoIds.length;
+      loadVideo();
+    }
+
+    // Load the first video
+    loadVideo();
+
+    // JavaScript code for controlling the YouTube videos in the News section
+    const videoIdsNews = [
+      "Lvy_lXFmLQo",
+      "qWO49qcGr-s",
+      "tgYrHws1SM0",
+      "1LeLJC9oGyc",
+      "o5qwDyDphQQ",
+    ];
+    let currentVideoIndexNews = 0;
+
+    function loadVideoNews() {
+      const iframeNews = document.getElementById("video-frame-news");
+      iframeNews.src = `https://www.youtube.com/embed/${videoIdsNews[currentVideoIndexNews]}`;
+    }
+
+    function nextVideoNews() {
+      currentVideoIndexNews =
+        (currentVideoIndexNews + 1) % videoIdsNews.length;
+      loadVideoNews();
+    }
+
+    function previousVideoNews() {
+      currentVideoIndexNews =
+        (currentVideoIndexNews - 1 + videoIdsNews.length) %
+        videoIdsNews.length;
+      loadVideoNews();
+    }
+
+    // Load the first video in the News section
+    loadVideoNews();
+  </script>
+</body>
+
+</html>

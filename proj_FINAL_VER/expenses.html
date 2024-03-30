@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/expenseCss.css">
+    <title>Kisaan-Sahay</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<style>
+    nav {
+      background-color: transparent;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      /* Center-align the navigation bar */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        border: 2px solid greenyellow;
+    }
+</style>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="expenses.html">Expenses Tracker</a>
+        <a href="http://localhost:5173/">Community</a>
+        <a href="news.html">News</a>
+      </nav>
+    <h1>Expense Tracker App</h1>
+    
+    <div class="input-section">
+        <label for="category-select">Category:</label>
+        <select id="category-select">
+            <option value="Pesticides">Pesticides</option>
+            <option value="Seeds">Seeds</option>
+            <option value="Crops">Crops</option>
+            <option value="MiscItems">Misc Items</option>
+        </select>
+        <label for="amount-input">Amount:</label>
+        <input type="number" id="amount-input">
+        <label for="date-input">Date:</label>
+        <input type="date" id="date-input">
+        <button id="add-btn">Add</button>
+    </div>
+    <div class="flex-div">
+
+        <div class="expenses-list">
+            <h2>Expenses List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="expnese-table-body">
+    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total:</td>
+                        <td id="total-amount"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    
+        <!-- Chart Section -->
+        <div class="expenses-chart">
+            <canvas id="expenses-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="expensescript.js"></script>
+</body>
+</html>

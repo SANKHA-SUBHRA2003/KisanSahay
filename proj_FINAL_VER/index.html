@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisaan-Sahay</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black; /* Match the background color of the webpage */
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .track-crops {
+        flex: 1;
+        margin-right: 20px; /* Adjust this value to reduce the distance */
+    }
+
+    .watering-status {
+        flex: 1;
+        margin-right: 500px; /* Adjust this value to reduce the distance */
+    }
+
+    nav {
+      background-color: transperant; opacity: 0.9;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      /* Center-align the navigation bar */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+        border: 2px solid greenyellow;
+    }
+    video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+  
+</style>
+<body>
+    <video autoplay loop muted>
+        <source src="./green.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="expenses.html">Expenses Tracker</a>
+        <a href="http://localhost:5173/">Community</a>
+        <a href="news.html">News</a>
+      </nav>
+    <div class="container">
+        
+
+        <div class="intro" style="padding-top: 0px; padding-right: 400px;color: white; font-weight: bold;text-shadow: 0 0 80px green;">
+            <h1>Welcome to Kisaan Sahay</h1>
+            <p> Empowering Farmers Everywhere!
+                Kisaan Sahay is more than just an app; it's a revolution in farming technology designed to uplift and support farmers in
+                 every aspect of their journey. With Kisaan Sahay, you can effortlessly stay ahead of the curve with real-time weather 
+                 updates, connect with like-minded individuals in vibrant farming communities, stay informed about the latest news and
+                  government schemes, and receive personalized assistance from our AI chatbox for all your farming needs. We understand
+                   the challenges and uncertainties that come with farming, which is why we've created Kisaan Sahay to be your reliable 
+                   partner, providing you with the tools and resources you need to thrive in today's agricultural landscape. Whether
+                    you're a seasoned farmer or just starting out, Kisaan Sahay is here to empower you, every step of the way.Join us
+                     on this journey towards a brighter, more sustainable future for agriculture. Together, let's cultivate success 
+                     with Kisaan Sahay!</p>
+        </div>
+
+        <div class="content" style="padding-top: 10px; color: white; font-weight: bold;text-shadow: 0 0 80px green; ">
+            <div class="track-crops">
+                <h2>Track Your Crops</h2>
+                <div class="crop-input">
+                    <input type="text" id="crop-name" placeholder="Enter name of recently planted crop">
+                    <button onclick="addCrop()">Add</button>
+                </div>
+                <div class="crop-list">
+                    <ul id="crop-list"></ul>
+                </div>
+            </div>
+
+            <div class="watering-status">
+                <h2>Watering Status</h2>
+                <div id="watering-status">
+                    <canvas id="watering-chart" width="400" height="200"></canvas>
+                    <p id="watering-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-app">
+            <!-- Weather app code starts here -->
+            <div class="Card">
+                <div class="search">
+                    <input id="it-asked" type="text" placeholder="Enter name of city" spellcheck="false">
+                    <button onclick="searchWeather()"><img src="./images/search.png" alt="" style="width: 20px;"></button>
+                </div>
+                <div class="error">
+                    <p>Invalid City Name!</p>
+                </div>
+                <div class="weather" style="display:none">
+                    <img src="../images/clouds.png" alt="" class="weather-icon">
+                    <h1 class="temp">22*c</h1>
+                    <h2 class="city">New Delhi</h2>
+                    <h4 class="word">cloudy</h4>
+                    <div class="details">
+                        <div class="col">
+                            <img src="./images/humidity.png" alt="">
+                            <div>
+                                <p class="humidity">50%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <img src="./images/wind.png" alt="">
+                            <div>
+                                <p class="wind">15 kmph</p>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="location-info" style="font-size:12px; display:none">(Weather showing based on user location)</p>
+                </div>
+            </div>
+            <!-- Weather app code ends here -->
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "818740ae9c6213da768514dba4ac5525";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
+
+        const weatherContainer = document.querySelector(".weather");
+        const errorContainer = document.querySelector(".error");
+        const locationInfo = document.getElementById("location-info");
+        let chart;
+
+        async function checkWeather(city) {
+            try {
+                const response = await fetch(`${apiUrl}&q=${city}&appid=${apiKey}`);
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                console.error(error);
+                displayError();
+            }
+        }
+
+        function displayWeather(data) {
+            weatherContainer.style.display = "block";
+            errorContainer.style.display = "none";
+            locationInfo.style.display = "none";
+
+            document.querySelector(".city").textContent = data.name;
+            document.querySelector(".temp").textContent = Math.round(data.main.temp) + "°c";
+            document.querySelector(".word").textContent = data.weather[0].main;
+            document.querySelector(".humidity").textContent = data.main.humidity + " %";
+            document.querySelector(".wind").textContent = data.wind.speed + " kmph";
+        }
+
+        function displayError() {
+            errorContainer.style.display = "block";
+            weatherContainer.style.display = "none";
+            locationInfo.style.display = "none";
+        }
+
+        function searchWeather() {
+            const city = document.getElementById("it-asked").value.trim();
+            if (city) {
+                checkWeather(city);
+            } else {
+                // Attempt to get user's location
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const { latitude, longitude } = position.coords;
+                            fetch(`${apiUrl}&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    displayWeather(data);
+                                    locationInfo.style.display = "block";
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching weather:', error);
+                                    displayError();
+                                });
+                        },
+                        (error) => {
+                            console.error('Error getting location:', error);
+                            displayError();
+                        }
+                    );
+                } else {
+                    console.error('Geolocation is not supported.');
+                    displayError();
+                }
+            }
+        }
+
+        function addCrop() {
+            const cropName = document.getElementById("crop-name").value.trim();
+            if (cropName) {
+                const cropList = document.getElementById("crop-list");
+                const li = document.createElement("li");
+                const btn = document.createElement("button");
+                btn.textContent = cropName;
+                btn.onclick = function() {
+                    showWateringStatus(cropName);
+                };
+                li.appendChild(btn);
+                cropList.appendChild(li);
+                document.getElementById("crop-name").value = "";
+            }
+        }
+
+        function showWateringStatus(cropName) {
+            const wateringStatus = calculateWateringStatus();
+            const wateringText = document.getElementById("watering-text");
+
+            wateringText.textContent = `${cropName}: ${wateringStatus}`;
+
+            // Clear previous chart if any
+            if (chart) {
+                chart.destroy();
+            }
+
+            const wateringChart = document.getElementById("watering-chart").getContext('2d');
+
+            chart = new Chart(wateringChart, {
+                type: 'line',
+                data: {
+                    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    datasets: [{
+                        label: 'Water %',
+                        data: generateChartData(wateringStatus),
+                        fill: false,
+                        borderColor: 'greenyellow',
+                        tension: 0.2
+                    }]
+                },
+                options: {
+    scales: {
+        x: {
+            ticks: {
+                color: 'white', // Sets the color of the x-axis labels to black
+                font: {
+                    weight: 'bold' // Makes the x-axis labels bold
+                }
+            }
+        },
+        y: {
+            ticks: {
+                color: 'white', // Sets the color of the y-axis labels to black
+                font: {
+                    weight: 'bold' // Makes the y-axis labels bold
+                }
+            }
+        }
+    },
+    layout: {
+        padding: {
+            left: 0,
+            right: 10,
+            top: 10,
+            bottom: 10
+        }
+    }
+}
+            });
+        }
+
+        function calculateWateringStatus() {
+            const randomNumber = Math.random() * 100;
+            if (randomNumber < 20) {
+                return "No need to water now";
+            } else if (randomNumber < 40) {
+                return "Need to water now";
+            } else if (randomNumber < 60) {
+                return "Need to water tomorrow";
+            } else if (randomNumber < 80) {
+                return "Need to water after 2 days";
+            } else {
+                return "Need to water after 3 days";
+            }
+        }
+
+        function generateChartData(wateringStatus) {
+            const data = [];
+            for (let i = 0; i < 7; i++) {
+                const randomValue = Math.floor(Math.random() * 100);
+                if (wateringStatus.includes("Need")) {
+                    data.push(randomValue);
+                } else {
+                    data.push(randomValue - 20);
+                }
+            }
+            return data;
+        }
+
+        // Search weather on page load
+        searchWeather();
+    </script>
+    <footer>
+        <div style="text-align: center;">
+            <p style="color: white;">Copyright ⓒ 2023 Eccentric Eagles</p>
+        </div>
+    </footer>
+</body>
+</html>

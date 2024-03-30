@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kisaan-Sahay</title>
+
+  <style>
+    /* Basic styling for the navigation bar */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      /* Set background image */
+      background-image: url('./images/bg-blur.png');
+      /* Adjust background image properties */
+      background-size: cover; /* Cover the entire background */
+      background-position: center; /* Center the background */
+      background-repeat: no-repeat; /* No repeating of background */
+    }
+
+    nav {
+      background-color: transparent;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      /* Center-align the navigation bar */
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      border: 2px solid greenyellow;
+    }
+
+    /* Style for sections */
+    section {
+      padding: 50px;
+      margin: 20px 0;
+      background-image: url('./images/main-bg.jpg');
+      /* Adjust background image properties */
+      background-size: cover; /* Cover the entire background */
+      background-position: center; /* Center the background */
+      background-repeat: no-repeat;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      display: none; /* Hide sections by default */
+    }
+
+    /* Big text style */
+    h1 {
+      font-size: 36px;
+      color: #fff; /* Set text color to white */
+      display: inline-block; /* Display h1 elements inline */
+      margin: 0;
+    }
+
+    h1 a {
+      color: #fff; /* Set link color to white */
+      text-decoration: none; /* Remove underline from links */
+    }
+
+    h1 a:hover {
+      text-decoration: underline; /* Underline links on hover */
+    }
+
+    /* Add this CSS for card styling */
+    .card {
+      background-color: #f0f0f0;
+      /* Updated background color for cards */
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex: 0 0 calc(33.33% - 20px);
+      /* Three cards per row */
+      max-width: calc(33.33% - 20px);
+    }
+
+    /* Media query for mobile devices */
+    @media screen and (max-width: 768px) {
+      .card {
+        flex: 0 0 calc(100% - 20px);
+        /* Full width on mobile */
+        max-width: calc(100% - 20px);
+      }
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: calc(33.33% - 20px);
+      /* Adjust width as needed */
+      margin: 10px;
+      /* Adjust margin as needed */
+      background-color: #f2f2f2;
+      /* Adjust background color */
+      padding: 20px;
+      /* Adjust padding as needed */
+      border-radius: 5px;
+      /* Add border radius for rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add box shadow for depth */
+    }
+
+    /* Style for images */
+    .card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    /* Center and add space between headings */
+    .heading-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .heading-container h1 {
+      margin: 0 10px; /* Add space between headings */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="expenses.html">Expenses Tracker</a>
+    <a href="http://localhost:5173/">Community</a>
+    <a href="news.html">News</a>
+  </nav>
+
+  <!-- Heading Container -->
+  <div class="heading-container">
+    <h1><a href="#" onclick="showAgriculture()">Agriculture</a></h1>
+    <h1><a href="#" onclick="showGovernment()">Government Schemes</a></h1>
+  </div>
+
+  <!-- Agriculture Section -->
+  <section id="agriculture">
+    <div class="card-container" id="agriculture-cards">
+      <!-- Cards will be dynamically generated here -->
+    </div>
+  </section>
+
+  <!-- Government Section -->
+  <section id="government">
+    <div class="card-container" id="scheme-cards">
+      <!-- Cards will be dynamically generated here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div style="text-align: center;">
+      <p style="color: white;">Copyright ⓒ 2023 Eccentric Eagles</p>
+    </div>
+  </footer>
+
+  <script>
+    // Function to show Agriculture section and hide Government section
+    function showAgriculture() {
+      document.getElementById("agriculture").style.display = "block";
+      document.getElementById("government").style.display = "none";
+      fetchAgricultureNews();
+    }
+
+    // Function to show Government section and hide Agriculture section
+    function showGovernment() {
+      document.getElementById("agriculture").style.display = "none";
+      document.getElementById("government").style.display = "block";
+      fetchGovernmentSchemes();
+    }
+
+    // Function to fetch agriculture news from News API
+    function fetchAgricultureNews() {
+      const apiKey = "cf5dde9c581e42faba4bf3ad0f524614"; // Replace with your News API key
+      const apiUrl = `https://newsapi.org/v2/everything?q=agriculture+India+technologies&apiKey=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          let articles = data.articles.slice(0, 16); // Limit to 16 articles
+          articles = articles.filter(article => article.url && article.url !== 'https://removed.com' && article.urlToImage);
+          const container = document.getElementById("agriculture-cards");
+          container.innerHTML = ""; // Clear previous content
+
+          articles.forEach(article => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Check if the article has an image
+            const image = article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" />` : '';
+
+            card.innerHTML = `
+              ${image}
+              <h2><a href="${article.url}" target="_blank" style="text-decoration: none; color: #333;">${article.title}</a></h2>
+              <p>${article.description}</p>
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(error => console.error("Error fetching agriculture news:", error));
+    }
+
+    // Function to fetch government schemes from News API
+    function fetchGovernmentSchemes() {
+      const apiKey = "cf5dde9c581e42faba4bf3ad0f524614"; // Replace with your News API key
+      const apiUrl = `https://newsapi.org/v2/everything?q=indian+government+schemes+agriculture&apiKey=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          let articles = data.articles.slice(0, 16); // Limit to 16 articles
+          articles = articles.filter(article => article.url && article.url !== 'https://removed.com' && article.urlToImage);
+          const container = document.getElementById("scheme-cards");
+          container.innerHTML = ""; // Clear previous content
+
+          articles.forEach(article => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Check if the article has an image
+            const image = article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" />` : '';
+
+            card.innerHTML = `
+              ${image}
+              <h2><a href="${article.url}" target="_blank" style="text-decoration: none; color: #333;">${article.title}</a></h2>
+              <p>${article.description}</p>
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(error => console.error("Error fetching government schemes:", error));
+    }
+
+    // Show Agriculture section by default
+    showAgriculture();
+  </script>
+</body>
+
+</html>
