@@ -16,3 +16,5 @@ Join us on this journey towards a brighter, more sustainable future for agricult
 "proj_FINAL_VER" contains remaining features and functionalities of the project
 
 video link : https://youtu.be/NJC5l61uHXs
+
+Team : Eccentric Eagles( Sankha Subhra Ghosh, Nihal Sivapuram, Nendra Namgyel Wangchuk)
